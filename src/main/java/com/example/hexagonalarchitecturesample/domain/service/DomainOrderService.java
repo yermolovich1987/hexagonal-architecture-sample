@@ -5,6 +5,7 @@ import com.example.hexagonalarchitecturesample.domain.models.Product;
 import com.example.hexagonalarchitecturesample.domain.ports.OrderRepository;
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
 import java.util.UUID;
 
 @RequiredArgsConstructor
@@ -43,7 +44,12 @@ public class DomainOrderService implements OrderService {
     orderRepository.save(order);
   }
 
-  private Order getOrder(UUID id) {
+  @Override
+  public List<Order> getOrders() {
+    return orderRepository.findAll();
+  }
+
+  public Order getOrder(UUID id) {
     return orderRepository.findById(id).orElseThrow(RuntimeException::new);
   }
 }
