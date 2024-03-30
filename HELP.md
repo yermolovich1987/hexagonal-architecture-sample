@@ -39,3 +39,6 @@ Testcontainers has been configured to use the following Docker images:
 
 Please review the tags of the used images and set them to the same as you're running in production.
 
+========================== Some useful commands:
+
+curl -X POST -H 'Content-Type: application/json' -d '{"product": {"id": "d0f37984-b863-4272-8b67-8946e480293e", "price":10.5, "name": "Some dummy order"}}' http://localhost:8080/orders
